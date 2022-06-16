@@ -1,0 +1,146 @@
+$header_height: 65px;
+$border: #A0AEC0 1px solid;
+$category_height: 40px;
+$article_height: 30px;
+$font_family: Georgia,
+    Simsun,
+    serif;
+
+.all {
+    width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: pink;
+
+    .header {
+        // display: flex;
+        // align-
+        items: center;
+        display: grid;
+        grid-template-columns: 220px auto 140px;
+        width: 100%;
+        height: $header_height;
+        // padding-left: 10px;
+        background-color: #212121;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+
+            .searchInput {
+                margin-right: 5px;
+            }
+        }
+
+        .add_btn {
+            padding-right: 10px;
+
+            .btn {
+                float: right;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .main {
+        height: calc(100% - $header_height);
+        border: $border;
+        // background-color: yellow;
+
+        overflow-y: scroll;
+        scrollbar-color: rebeccapurple green;
+        scrollbar-width: thin;
+    }
+}
+
+.articleTable {
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+
+    .item {
+        .category {
+            display: grid;
+            grid-template-columns: 200px auto 100px;
+            height: $category_height;
+            background-color: pink;
+
+            .categoryName {
+                line-height: $category_height;
+                padding-left: 10px;
+
+                font: {
+                    size: 18px;
+                    family: $font_family;
+                }
+            }
+
+            .categoryTimestamp {
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                padding-right: 10px;
+
+                font: {
+                    size: 16px;
+                    family: $font_family;
+                }
+            }
+
+            .categoryBtn {
+                display: flex;
+                align-items: center;
+                justify-content: right;
+
+                button {
+                    margin: 0 2px;
+                }
+            }
+        }
+
+        .article {
+            display: grid;
+            grid-template-columns: 200px auto 100px;
+            height: $article_height;
+
+            background-color: aqua;
+
+            .articleName {
+                line-height: $article_height;
+                padding-left: 10px;
+
+                font: {
+                    size: 16px;
+                    family: $font_family;
+                }
+            }
+
+            .articleTimestamp {
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                padding-right: 10px;
+
+                font: {
+                    size: 16px;
+                    family: $font_family;
+                }
+            }
+
+            .articleBtn {
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                padding-right: 2px;
+            }
+        }
+    }
+}

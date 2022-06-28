@@ -68,7 +68,7 @@ class Content extends React.Component {
                             <li key={i}>
                                 {category.name}
                                 <ul>
-                                    {category.articles.map((article, j) => {
+                                    {category.children.map((article, j) => {
                                         return <li key={j}><a href='#'>{article.name}</a></li>
                                     })}
                                 </ul>
@@ -107,7 +107,7 @@ class Index extends React.Component {
                             <li tabIndex="0" key={i}>
                                 <div>{category.name}</div>
                                 <ul>
-                                    {category.articles.map((article, j) => {
+                                    {category.children.map((article, j) => {
                                         return <li key={j}><a href='#'>{article.name}</a></li>
                                     })}
                                 </ul>

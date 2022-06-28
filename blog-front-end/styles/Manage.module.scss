@@ -1,27 +1,38 @@
-$header_height: 65px;
-$border: #A0AEC0 1px solid;
-$category_height: 40px;
-$article_height: 30px;
+$gray: #A0AEC0;
+$black: #212121;
+
+$border: $gray 1px solid;
+
 $font_family: Georgia,
     Simsun,
     serif;
+
+$header_height: 65px;
+$item_height: 30px;
+$exp_logo_width: 16px;
+$exp_logo_height: 12px;
+$line_padding_bottom: ($item_height - $exp_logo_height)/2;
+$line_width: 2px;
+
+
+
+@mixin flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .all {
     width: 800px;
     height: 100%;
     margin: 0 auto;
-    background-color: pink;
 
     .header {
-        // display: flex;
-        // align-
-        items: center;
         display: grid;
         grid-template-columns: 220px auto 140px;
         width: 100%;
         height: $header_height;
-        // padding-left: 10px;
-        background-color: #212121;
+        background-color: $black;
 
         .logo {
             display: flex;
@@ -52,94 +63,101 @@ $font_family: Georgia,
 
     .main {
         height: calc(100% - $header_height);
-        border: $border;
-        // background-color: yellow;
+        border-left: $border;
+        border-right: $border;
 
-        overflow-y: scroll;
-        scrollbar-color: rebeccapurple green;
-        scrollbar-width: thin;
+        // overflow-y: scroll;
+        // scrollbar-color: rebeccapurple green;
+        // scrollbar-width: thin;
     }
+}
+
+.midBtn {
+    margin: 0 5px;
 }
 
 .articleTable {
     width: 100%;
     height: 100%;
-    background-color: yellow;
+}
 
-    .item {
-        .category {
-            display: grid;
-            grid-template-columns: 200px auto 100px;
-            height: $category_height;
-            background-color: pink;
+.item {
+    display: flex;
+    padding-left: 10px;
 
-            .categoryName {
-                line-height: $category_height;
-                padding-left: 10px;
+    .left {
+        width: $exp_logo_width;
 
-                font: {
-                    size: 18px;
-                    family: $font_family;
-                }
-            }
-
-            .categoryTimestamp {
-                display: flex;
-                align-items: center;
-                justify-content: right;
-                padding-right: 10px;
-
-                font: {
-                    size: 16px;
-                    family: $font_family;
-                }
-            }
-
-            .categoryBtn {
-                display: flex;
-                align-items: center;
-                justify-content: right;
-
-                button {
-                    margin: 0 2px;
-                }
-            }
+        .logo {
+            @include flex_center;
+            height: $exp_logo_height;
+            margin-top: ($item_height - $exp_logo_height)/2;
         }
 
-        .article {
+        .line {
+            height: calc(100% - ($item_height - $exp_logo_height)/2 - $exp_logo_height - $line_padding_bottom);
+            width: $line_width;
+            margin-left: ($exp_logo_width - $line_width)/2;
+            background-color: $gray;
+        }
+    }
+
+    .right {
+        width: calc(100% - 2px);
+
+        .itemBody {
             display: grid;
             grid-template-columns: 200px auto 100px;
-            height: $article_height;
+            height: $item_height;
 
-            background-color: aqua;
-
-            .articleName {
-                line-height: $article_height;
-                padding-left: 10px;
+            .itemName {
+                display: flex;
+                align-items: center;
+                justify-content: left;
 
                 font: {
-                    size: 16px;
+                    size: 15px;
                     family: $font_family;
                 }
             }
 
-            .articleTimestamp {
+            .itemTimestamp {
                 display: flex;
                 align-items: center;
                 justify-content: right;
                 padding-right: 10px;
 
                 font: {
-                    size: 16px;
+                    size: 14px;
                     family: $font_family;
                 }
             }
 
-            .articleBtn {
+            .itemBtn {
                 display: flex;
                 align-items: center;
                 justify-content: right;
-                padding-right: 2px;
+
+                padding-right: 10px;
+                font-size: 18px;
+
+                div {
+                    section {
+                        display: none;
+                    }
+
+                    &:hover {
+                        >span {
+                            display: none;
+                        }
+
+                        >section {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+                }
             }
         }
     }

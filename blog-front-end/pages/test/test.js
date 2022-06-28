@@ -18,23 +18,40 @@ _italic_
 const content_info = [
     {
         name: "zk-SNARK",
-        articles: [
+        children: [
             {
-                name: "算术电路"
+                name: "算术电路",
+                children: [
+                    {
+                        name: "Hello",
+                        children: [{
+                            name: "算术电路",
+                            children: [
+                                {
+                                    name: "Hello",
+                                    children: []
+                                }
+                            ]
+                        }]
+                    }
+                ]
             },
             {
-                name: "R1CS"
+                name: "R1CS",
+                children: []
             }
         ]
     },
     {
         name: "Compiler",
-        articles: [
+        children: [
             {
-                name: "词法分析"
+                name: "词法分析",
+                children: []
             },
             {
-                name: "语法分析"
+                name: "语法分析",
+                children: []
             }
         ]
     },
